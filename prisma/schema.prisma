@@ -1,0 +1,95 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Employees {
+  id          String  @id @unique @default(uuid())
+  name        String
+  address     String
+  phoneNumber String?
+  email       String? @unique
+  username    String  @unique
+  password    String
+  token       String? @db.Text
+}
+
+model Clients {
+  id          String     @id @unique @default(uuid())
+  name        String
+  address     String
+  phoneNumber String?
+  email       String?
+  Vehicle     Vehicles[]
+}
+
+model Vehicles {
+  id      String    @id @unique @default(uuid())
+  plate   String    @unique
+  brand   String
+  model   String
+  type    String
+  client  Clients   @relation(fields: [owner], references: [id])
+  owner   String
+  Records Records[]
+}
+
+model Records {
+  id        String    @id @unique @default(uuid())
+  entryDate DateTime  @default(dbgenerated("current_timestamp")) @db.DateTime()
+  exitDate  DateTime? @db.DateTime()
+  vehicle   Vehicles  @relation(fields: [vehicleId], references: [id])
+  vehicleId String
+  fee       Fees      @relation(fields: [feeId], references: [id])
+  feeId     String
+  slot      Slots     @relation(fields: [slotId], references: [id])
+  slotId    String
+  updatedAt DateTime  @updatedAt
+}
+
+model Slots {
+  id          String    @id @unique @default(uuid())
+  number      Int       @unique
+  description String?   @default("Without description")
+  status      Boolean   @default(true)
+  Records     Records[]
+}
+
+model Fees {
+  id      String    @id @unique @default(uuid())
+  name    String
+  cost    Decimal   @db.Decimal(10, 2)
+  status  Boolean   @default(true)
+  Records Records[]
+}
+
+model Photoresistors {
+  id        String   @id @unique @default(uuid())
+  status    String
+  createdAt DateTime @default(dbgenerated("current_timestamp")) @db.DateTime()
+}
+
+model HumiditySensors {
+  id           String   @id @unique @default(uuid())
+  temperature  Decimal  @db.Decimal(10, 2)
+  humidity     Int
+  status       Boolean  @default(true)
+  registeredAt DateTime @default(dbgenerated("current_timestamp")) @db.DateTime()
+}
+
+model ProximitySensor {
+  id           String   @id @unique @default(uuid())
+  distance     Decimal  @db.Decimal(10, 2)
+  status       Boolean  @default(true)
+  registeredAt DateTime @default(dbgenerated("current_timestamp")) @db.DateTime()
+}
