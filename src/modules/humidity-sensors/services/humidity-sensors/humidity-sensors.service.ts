@@ -1,6 +1,6 @@
 import { HumiditySensors, Prisma } from '@prisma/client';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
-import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/modules/prisma/services/prisma/prisma.service';
 
 @Injectable()
@@ -13,6 +13,14 @@ export class HumiditySensorsService {
         return this.prisma.humiditySensors.findMany({
             orderBy: {
                 id: 'asc'
+            }
+        });
+    }
+
+    async getLastHumiditySensor(): Promise<HumiditySensors> {
+        return this.prisma.humiditySensors.findFirst({
+            orderBy: {
+                registeredAt: 'desc'
             }
         });
     }
@@ -42,7 +50,7 @@ export class HumiditySensorsService {
             return humiditySensor;
     } 
 
-    async updateHumiditySensor(humiditySensorId: string, updateData: Prisma.HumiditySe): Promise<HumiditySensors> {
+    async updateHumiditySensor(humiditySensorId: string, updateData: Prisma.HumiditySensorsUpdateInput): Promise<HumiditySensors> {
         try {
             const existingRecord = await this.prisma.humiditySensors.findUnique({
                 where: {

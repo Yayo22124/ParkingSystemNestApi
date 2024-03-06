@@ -21,7 +21,7 @@ export class SlotsController {
     async getSlotById(@Param('id') slotId: string, @Res() res: Response) {
       try {
         const slot = await this.slotsService.getSlot(slotId);
-        return res.status(HttpStatus.FOUND).json({
+        return res.status(HttpStatus.OK).json({
           success: true,
           data: slot,
         });
@@ -45,7 +45,7 @@ export class SlotsController {
         try {
             const newSlot = await this.slotsService.createSlot(slotData);
 
-            return res.status(HttpStatus.CREATED).json({
+            return res.status(HttpStatus.OK).json({
                 success: true,
                 data: newSlot,
                 message: "Slot created succesfully."

@@ -21,7 +21,7 @@ export class FeesController {
     async getFeeById(@Param('id') feeId: string, @Res() res: Response) {
       try {
         const fee = await this.feesService.getFee(feeId);
-        return res.status(HttpStatus.FOUND).json({
+        return res.status(HttpStatus.OK).json({
           success: true,
           data: fee,
         });

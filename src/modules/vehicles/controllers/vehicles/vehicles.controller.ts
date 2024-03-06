@@ -21,7 +21,7 @@ export class VehiclesController {
     async getVehicleById(@Param('id') vehicleId: string, @Res() res: Response) {
       try {
         const vehicle = await this.vehiclesService.getVehicle(vehicleId);
-        return res.status(HttpStatus.FOUND).json({
+        return res.status(HttpStatus.OK).json({
           success: true,
           data: vehicle,
         });

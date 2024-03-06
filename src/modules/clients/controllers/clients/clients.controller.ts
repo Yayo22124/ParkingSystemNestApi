@@ -21,7 +21,7 @@ export class ClientsController {
     async getClientById(@Param('id') clientId: string, @Res() res: Response) {
       try {
         const client = await this.clientsService.getClient(clientId);
-        return res.status(HttpStatus.FOUND).json({
+        return res.status(HttpStatus.OK).json({
           success: true,
           data: client,
         });

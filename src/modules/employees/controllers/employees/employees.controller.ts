@@ -22,7 +22,7 @@ export class EmployeesController {
     async getEmployeeById(@Param('id') employeeId: string, @Res() res: Response) {
       try {
         const employee = await this.employeesService.getEmployee(employeeId);
-        return res.status(HttpStatus.FOUND).json({
+        return res.status(HttpStatus.OK).json({
           success: true,
           data: employee,
         });
