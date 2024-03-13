@@ -17,11 +17,11 @@ exports.$Enums = {}
 
 /**
  * Prisma Client JS version: 5.10.2
- * Query Engine version: 5a9203d0590c951969e85a7d07215503f4672eb9
+ * Query Engine version: efd2449663b3d73d637ea1fd226bafbcf45b3102
  */
 Prisma.prismaVersion = {
   client: "5.10.2",
-  engine: "5a9203d0590c951969e85a7d07215503f4672eb9"
+  engine: "efd2449663b3d73d637ea1fd226bafbcf45b3102"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -173,9 +173,15 @@ exports.Prisma.HumiditySensorsScalarFieldEnum = {
   registeredAt: 'registeredAt'
 };
 
-exports.Prisma.ProximitySensorScalarFieldEnum = {
+exports.Prisma.ProximitySensorsScalarFieldEnum = {
   id: 'id',
   distance: 'distance',
+  status: 'status',
+  registeredAt: 'registeredAt'
+};
+
+exports.Prisma.FanActuatorsScalarFieldEnum = {
+  id: 'id',
   status: 'status',
   registeredAt: 'registeredAt'
 };
@@ -200,7 +206,8 @@ exports.Prisma.ModelName = {
   Fees: 'Fees',
   Photoresistors: 'Photoresistors',
   HumiditySensors: 'HumiditySensors',
-  ProximitySensor: 'ProximitySensor'
+  ProximitySensors: 'ProximitySensors',
+  FanActuators: 'FanActuators'
 };
 
 /**

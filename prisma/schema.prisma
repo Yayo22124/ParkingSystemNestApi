@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "./prisma/client"
 }
 
 datasource db {
@@ -89,9 +88,16 @@ model HumiditySensors {
   registeredAt DateTime @default(dbgenerated("current_timestamp")) @db.DateTime()
 }
 
-model ProximitySensor {
+model ProximitySensors {
   id           String   @id @unique @default(uuid())
   distance     Decimal  @db.Decimal(10, 2)
+  status       Boolean  @default(true)
+  registeredAt DateTime @default(dbgenerated("current_timestamp")) @db.DateTime()
+}
+
+
+model FanActuators {
+  id           String   @id @unique @default(uuid())
   status       Boolean  @default(true)
   registeredAt DateTime @default(dbgenerated("current_timestamp")) @db.DateTime()
 }

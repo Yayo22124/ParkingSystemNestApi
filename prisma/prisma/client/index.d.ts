@@ -54,10 +54,15 @@ export type Photoresistors = $Result.DefaultSelection<Prisma.$PhotoresistorsPayl
  */
 export type HumiditySensors = $Result.DefaultSelection<Prisma.$HumiditySensorsPayload>
 /**
- * Model ProximitySensor
+ * Model ProximitySensors
  * 
  */
-export type ProximitySensor = $Result.DefaultSelection<Prisma.$ProximitySensorPayload>
+export type ProximitySensors = $Result.DefaultSelection<Prisma.$ProximitySensorsPayload>
+/**
+ * Model FanActuators
+ * 
+ */
+export type FanActuators = $Result.DefaultSelection<Prisma.$FanActuatorsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -262,14 +267,24 @@ export class PrismaClient<
   get humiditySensors(): Prisma.HumiditySensorsDelegate<ExtArgs>;
 
   /**
-   * `prisma.proximitySensor`: Exposes CRUD operations for the **ProximitySensor** model.
+   * `prisma.proximitySensors`: Exposes CRUD operations for the **ProximitySensors** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more ProximitySensors
-    * const proximitySensors = await prisma.proximitySensor.findMany()
+    * const proximitySensors = await prisma.proximitySensors.findMany()
     * ```
     */
-  get proximitySensor(): Prisma.ProximitySensorDelegate<ExtArgs>;
+  get proximitySensors(): Prisma.ProximitySensorsDelegate<ExtArgs>;
+
+  /**
+   * `prisma.fanActuators`: Exposes CRUD operations for the **FanActuators** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FanActuators
+    * const fanActuators = await prisma.fanActuators.findMany()
+    * ```
+    */
+  get fanActuators(): Prisma.FanActuatorsDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -328,7 +343,7 @@ export namespace Prisma {
 
   /**
    * Prisma Client JS version: 5.10.2
-   * Query Engine version: 5a9203d0590c951969e85a7d07215503f4672eb9
+   * Query Engine version: efd2449663b3d73d637ea1fd226bafbcf45b3102
    */
   export type PrismaVersion = {
     client: string
@@ -748,7 +763,8 @@ export namespace Prisma {
     Fees: 'Fees',
     Photoresistors: 'Photoresistors',
     HumiditySensors: 'HumiditySensors',
-    ProximitySensor: 'ProximitySensor'
+    ProximitySensors: 'ProximitySensors',
+    FanActuators: 'FanActuators'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -765,7 +781,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'employees' | 'clients' | 'vehicles' | 'records' | 'slots' | 'fees' | 'photoresistors' | 'humiditySensors' | 'proximitySensor'
+      modelProps: 'employees' | 'clients' | 'vehicles' | 'records' | 'slots' | 'fees' | 'photoresistors' | 'humiditySensors' | 'proximitySensors' | 'fanActuators'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -1297,69 +1313,135 @@ export namespace Prisma {
           }
         }
       }
-      ProximitySensor: {
-        payload: Prisma.$ProximitySensorPayload<ExtArgs>
-        fields: Prisma.ProximitySensorFieldRefs
+      ProximitySensors: {
+        payload: Prisma.$ProximitySensorsPayload<ExtArgs>
+        fields: Prisma.ProximitySensorsFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.ProximitySensorFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ProximitySensorPayload> | null
+            args: Prisma.ProximitySensorsFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ProximitySensorsPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.ProximitySensorFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ProximitySensorPayload>
+            args: Prisma.ProximitySensorsFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ProximitySensorsPayload>
           }
           findFirst: {
-            args: Prisma.ProximitySensorFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ProximitySensorPayload> | null
+            args: Prisma.ProximitySensorsFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ProximitySensorsPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.ProximitySensorFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ProximitySensorPayload>
+            args: Prisma.ProximitySensorsFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ProximitySensorsPayload>
           }
           findMany: {
-            args: Prisma.ProximitySensorFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ProximitySensorPayload>[]
+            args: Prisma.ProximitySensorsFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ProximitySensorsPayload>[]
           }
           create: {
-            args: Prisma.ProximitySensorCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ProximitySensorPayload>
+            args: Prisma.ProximitySensorsCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ProximitySensorsPayload>
           }
           createMany: {
-            args: Prisma.ProximitySensorCreateManyArgs<ExtArgs>,
+            args: Prisma.ProximitySensorsCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.ProximitySensorDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ProximitySensorPayload>
+            args: Prisma.ProximitySensorsDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ProximitySensorsPayload>
           }
           update: {
-            args: Prisma.ProximitySensorUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ProximitySensorPayload>
+            args: Prisma.ProximitySensorsUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ProximitySensorsPayload>
           }
           deleteMany: {
-            args: Prisma.ProximitySensorDeleteManyArgs<ExtArgs>,
+            args: Prisma.ProximitySensorsDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.ProximitySensorUpdateManyArgs<ExtArgs>,
+            args: Prisma.ProximitySensorsUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.ProximitySensorUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ProximitySensorPayload>
+            args: Prisma.ProximitySensorsUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ProximitySensorsPayload>
           }
           aggregate: {
-            args: Prisma.ProximitySensorAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateProximitySensor>
+            args: Prisma.ProximitySensorsAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateProximitySensors>
           }
           groupBy: {
-            args: Prisma.ProximitySensorGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<ProximitySensorGroupByOutputType>[]
+            args: Prisma.ProximitySensorsGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<ProximitySensorsGroupByOutputType>[]
           }
           count: {
-            args: Prisma.ProximitySensorCountArgs<ExtArgs>,
-            result: $Utils.Optional<ProximitySensorCountAggregateOutputType> | number
+            args: Prisma.ProximitySensorsCountArgs<ExtArgs>,
+            result: $Utils.Optional<ProximitySensorsCountAggregateOutputType> | number
+          }
+        }
+      }
+      FanActuators: {
+        payload: Prisma.$FanActuatorsPayload<ExtArgs>
+        fields: Prisma.FanActuatorsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FanActuatorsFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FanActuatorsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FanActuatorsFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FanActuatorsPayload>
+          }
+          findFirst: {
+            args: Prisma.FanActuatorsFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FanActuatorsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FanActuatorsFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FanActuatorsPayload>
+          }
+          findMany: {
+            args: Prisma.FanActuatorsFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FanActuatorsPayload>[]
+          }
+          create: {
+            args: Prisma.FanActuatorsCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FanActuatorsPayload>
+          }
+          createMany: {
+            args: Prisma.FanActuatorsCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.FanActuatorsDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FanActuatorsPayload>
+          }
+          update: {
+            args: Prisma.FanActuatorsUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FanActuatorsPayload>
+          }
+          deleteMany: {
+            args: Prisma.FanActuatorsDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FanActuatorsUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.FanActuatorsUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$FanActuatorsPayload>
+          }
+          aggregate: {
+            args: Prisma.FanActuatorsAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateFanActuators>
+          }
+          groupBy: {
+            args: Prisma.FanActuatorsGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<FanActuatorsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FanActuatorsCountArgs<ExtArgs>,
+            result: $Utils.Optional<FanActuatorsCountAggregateOutputType> | number
           }
         }
       }
@@ -9093,40 +9175,40 @@ export namespace Prisma {
 
 
   /**
-   * Model ProximitySensor
+   * Model ProximitySensors
    */
 
-  export type AggregateProximitySensor = {
-    _count: ProximitySensorCountAggregateOutputType | null
-    _avg: ProximitySensorAvgAggregateOutputType | null
-    _sum: ProximitySensorSumAggregateOutputType | null
-    _min: ProximitySensorMinAggregateOutputType | null
-    _max: ProximitySensorMaxAggregateOutputType | null
+  export type AggregateProximitySensors = {
+    _count: ProximitySensorsCountAggregateOutputType | null
+    _avg: ProximitySensorsAvgAggregateOutputType | null
+    _sum: ProximitySensorsSumAggregateOutputType | null
+    _min: ProximitySensorsMinAggregateOutputType | null
+    _max: ProximitySensorsMaxAggregateOutputType | null
   }
 
-  export type ProximitySensorAvgAggregateOutputType = {
+  export type ProximitySensorsAvgAggregateOutputType = {
     distance: Decimal | null
   }
 
-  export type ProximitySensorSumAggregateOutputType = {
+  export type ProximitySensorsSumAggregateOutputType = {
     distance: Decimal | null
   }
 
-  export type ProximitySensorMinAggregateOutputType = {
+  export type ProximitySensorsMinAggregateOutputType = {
     id: string | null
     distance: Decimal | null
     status: boolean | null
     registeredAt: Date | null
   }
 
-  export type ProximitySensorMaxAggregateOutputType = {
+  export type ProximitySensorsMaxAggregateOutputType = {
     id: string | null
     distance: Decimal | null
     status: boolean | null
     registeredAt: Date | null
   }
 
-  export type ProximitySensorCountAggregateOutputType = {
+  export type ProximitySensorsCountAggregateOutputType = {
     id: number
     distance: number
     status: number
@@ -9135,29 +9217,29 @@ export namespace Prisma {
   }
 
 
-  export type ProximitySensorAvgAggregateInputType = {
+  export type ProximitySensorsAvgAggregateInputType = {
     distance?: true
   }
 
-  export type ProximitySensorSumAggregateInputType = {
+  export type ProximitySensorsSumAggregateInputType = {
     distance?: true
   }
 
-  export type ProximitySensorMinAggregateInputType = {
+  export type ProximitySensorsMinAggregateInputType = {
     id?: true
     distance?: true
     status?: true
     registeredAt?: true
   }
 
-  export type ProximitySensorMaxAggregateInputType = {
+  export type ProximitySensorsMaxAggregateInputType = {
     id?: true
     distance?: true
     status?: true
     registeredAt?: true
   }
 
-  export type ProximitySensorCountAggregateInputType = {
+  export type ProximitySensorsCountAggregateInputType = {
     id?: true
     distance?: true
     status?: true
@@ -9165,23 +9247,23 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type ProximitySensorAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProximitySensorsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which ProximitySensor to aggregate.
+     * Filter which ProximitySensors to aggregate.
      */
-    where?: ProximitySensorWhereInput
+    where?: ProximitySensorsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of ProximitySensors to fetch.
      */
-    orderBy?: ProximitySensorOrderByWithRelationInput | ProximitySensorOrderByWithRelationInput[]
+    orderBy?: ProximitySensorsOrderByWithRelationInput | ProximitySensorsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: ProximitySensorWhereUniqueInput
+    cursor?: ProximitySensorsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -9199,92 +9281,92 @@ export namespace Prisma {
      * 
      * Count returned ProximitySensors
     **/
-    _count?: true | ProximitySensorCountAggregateInputType
+    _count?: true | ProximitySensorsCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: ProximitySensorAvgAggregateInputType
+    _avg?: ProximitySensorsAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: ProximitySensorSumAggregateInputType
+    _sum?: ProximitySensorsSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: ProximitySensorMinAggregateInputType
+    _min?: ProximitySensorsMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: ProximitySensorMaxAggregateInputType
+    _max?: ProximitySensorsMaxAggregateInputType
   }
 
-  export type GetProximitySensorAggregateType<T extends ProximitySensorAggregateArgs> = {
-        [P in keyof T & keyof AggregateProximitySensor]: P extends '_count' | 'count'
+  export type GetProximitySensorsAggregateType<T extends ProximitySensorsAggregateArgs> = {
+        [P in keyof T & keyof AggregateProximitySensors]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateProximitySensor[P]>
-      : GetScalarType<T[P], AggregateProximitySensor[P]>
+        : GetScalarType<T[P], AggregateProximitySensors[P]>
+      : GetScalarType<T[P], AggregateProximitySensors[P]>
   }
 
 
 
 
-  export type ProximitySensorGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ProximitySensorWhereInput
-    orderBy?: ProximitySensorOrderByWithAggregationInput | ProximitySensorOrderByWithAggregationInput[]
-    by: ProximitySensorScalarFieldEnum[] | ProximitySensorScalarFieldEnum
-    having?: ProximitySensorScalarWhereWithAggregatesInput
+  export type ProximitySensorsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProximitySensorsWhereInput
+    orderBy?: ProximitySensorsOrderByWithAggregationInput | ProximitySensorsOrderByWithAggregationInput[]
+    by: ProximitySensorsScalarFieldEnum[] | ProximitySensorsScalarFieldEnum
+    having?: ProximitySensorsScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: ProximitySensorCountAggregateInputType | true
-    _avg?: ProximitySensorAvgAggregateInputType
-    _sum?: ProximitySensorSumAggregateInputType
-    _min?: ProximitySensorMinAggregateInputType
-    _max?: ProximitySensorMaxAggregateInputType
+    _count?: ProximitySensorsCountAggregateInputType | true
+    _avg?: ProximitySensorsAvgAggregateInputType
+    _sum?: ProximitySensorsSumAggregateInputType
+    _min?: ProximitySensorsMinAggregateInputType
+    _max?: ProximitySensorsMaxAggregateInputType
   }
 
-  export type ProximitySensorGroupByOutputType = {
+  export type ProximitySensorsGroupByOutputType = {
     id: string
     distance: Decimal
     status: boolean
     registeredAt: Date
-    _count: ProximitySensorCountAggregateOutputType | null
-    _avg: ProximitySensorAvgAggregateOutputType | null
-    _sum: ProximitySensorSumAggregateOutputType | null
-    _min: ProximitySensorMinAggregateOutputType | null
-    _max: ProximitySensorMaxAggregateOutputType | null
+    _count: ProximitySensorsCountAggregateOutputType | null
+    _avg: ProximitySensorsAvgAggregateOutputType | null
+    _sum: ProximitySensorsSumAggregateOutputType | null
+    _min: ProximitySensorsMinAggregateOutputType | null
+    _max: ProximitySensorsMaxAggregateOutputType | null
   }
 
-  type GetProximitySensorGroupByPayload<T extends ProximitySensorGroupByArgs> = Prisma.PrismaPromise<
+  type GetProximitySensorsGroupByPayload<T extends ProximitySensorsGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<ProximitySensorGroupByOutputType, T['by']> &
+      PickEnumerable<ProximitySensorsGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof ProximitySensorGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof ProximitySensorsGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], ProximitySensorGroupByOutputType[P]>
-            : GetScalarType<T[P], ProximitySensorGroupByOutputType[P]>
+              : GetScalarType<T[P], ProximitySensorsGroupByOutputType[P]>
+            : GetScalarType<T[P], ProximitySensorsGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type ProximitySensorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ProximitySensorsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     distance?: boolean
     status?: boolean
     registeredAt?: boolean
-  }, ExtArgs["result"]["proximitySensor"]>
+  }, ExtArgs["result"]["proximitySensors"]>
 
-  export type ProximitySensorSelectScalar = {
+  export type ProximitySensorsSelectScalar = {
     id?: boolean
     distance?: boolean
     status?: boolean
@@ -9292,168 +9374,168 @@ export namespace Prisma {
   }
 
 
-  export type $ProximitySensorPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "ProximitySensor"
+  export type $ProximitySensorsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProximitySensors"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
       distance: Prisma.Decimal
       status: boolean
       registeredAt: Date
-    }, ExtArgs["result"]["proximitySensor"]>
+    }, ExtArgs["result"]["proximitySensors"]>
     composites: {}
   }
 
 
-  type ProximitySensorGetPayload<S extends boolean | null | undefined | ProximitySensorDefaultArgs> = $Result.GetResult<Prisma.$ProximitySensorPayload, S>
+  type ProximitySensorsGetPayload<S extends boolean | null | undefined | ProximitySensorsDefaultArgs> = $Result.GetResult<Prisma.$ProximitySensorsPayload, S>
 
-  type ProximitySensorCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<ProximitySensorFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: ProximitySensorCountAggregateInputType | true
+  type ProximitySensorsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ProximitySensorsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ProximitySensorsCountAggregateInputType | true
     }
 
-  export interface ProximitySensorDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProximitySensor'], meta: { name: 'ProximitySensor' } }
+  export interface ProximitySensorsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProximitySensors'], meta: { name: 'ProximitySensors' } }
     /**
-     * Find zero or one ProximitySensor that matches the filter.
-     * @param {ProximitySensorFindUniqueArgs} args - Arguments to find a ProximitySensor
+     * Find zero or one ProximitySensors that matches the filter.
+     * @param {ProximitySensorsFindUniqueArgs} args - Arguments to find a ProximitySensors
      * @example
-     * // Get one ProximitySensor
-     * const proximitySensor = await prisma.proximitySensor.findUnique({
+     * // Get one ProximitySensors
+     * const proximitySensors = await prisma.proximitySensors.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends ProximitySensorFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, ProximitySensorFindUniqueArgs<ExtArgs>>
-    ): Prisma__ProximitySensorClient<$Result.GetResult<Prisma.$ProximitySensorPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends ProximitySensorsFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, ProximitySensorsFindUniqueArgs<ExtArgs>>
+    ): Prisma__ProximitySensorsClient<$Result.GetResult<Prisma.$ProximitySensorsPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one ProximitySensor that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one ProximitySensors that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {ProximitySensorFindUniqueOrThrowArgs} args - Arguments to find a ProximitySensor
+     * @param {ProximitySensorsFindUniqueOrThrowArgs} args - Arguments to find a ProximitySensors
      * @example
-     * // Get one ProximitySensor
-     * const proximitySensor = await prisma.proximitySensor.findUniqueOrThrow({
+     * // Get one ProximitySensors
+     * const proximitySensors = await prisma.proximitySensors.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends ProximitySensorFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, ProximitySensorFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__ProximitySensorClient<$Result.GetResult<Prisma.$ProximitySensorPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends ProximitySensorsFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ProximitySensorsFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__ProximitySensorsClient<$Result.GetResult<Prisma.$ProximitySensorsPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first ProximitySensor that matches the filter.
+     * Find the first ProximitySensors that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProximitySensorFindFirstArgs} args - Arguments to find a ProximitySensor
+     * @param {ProximitySensorsFindFirstArgs} args - Arguments to find a ProximitySensors
      * @example
-     * // Get one ProximitySensor
-     * const proximitySensor = await prisma.proximitySensor.findFirst({
+     * // Get one ProximitySensors
+     * const proximitySensors = await prisma.proximitySensors.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends ProximitySensorFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, ProximitySensorFindFirstArgs<ExtArgs>>
-    ): Prisma__ProximitySensorClient<$Result.GetResult<Prisma.$ProximitySensorPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends ProximitySensorsFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, ProximitySensorsFindFirstArgs<ExtArgs>>
+    ): Prisma__ProximitySensorsClient<$Result.GetResult<Prisma.$ProximitySensorsPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first ProximitySensor that matches the filter or
+     * Find the first ProximitySensors that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProximitySensorFindFirstOrThrowArgs} args - Arguments to find a ProximitySensor
+     * @param {ProximitySensorsFindFirstOrThrowArgs} args - Arguments to find a ProximitySensors
      * @example
-     * // Get one ProximitySensor
-     * const proximitySensor = await prisma.proximitySensor.findFirstOrThrow({
+     * // Get one ProximitySensors
+     * const proximitySensors = await prisma.proximitySensors.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends ProximitySensorFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, ProximitySensorFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__ProximitySensorClient<$Result.GetResult<Prisma.$ProximitySensorPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends ProximitySensorsFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ProximitySensorsFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__ProximitySensorsClient<$Result.GetResult<Prisma.$ProximitySensorsPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
      * Find zero or more ProximitySensors that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProximitySensorFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {ProximitySensorsFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all ProximitySensors
-     * const proximitySensors = await prisma.proximitySensor.findMany()
+     * const proximitySensors = await prisma.proximitySensors.findMany()
      * 
      * // Get first 10 ProximitySensors
-     * const proximitySensors = await prisma.proximitySensor.findMany({ take: 10 })
+     * const proximitySensors = await prisma.proximitySensors.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const proximitySensorWithIdOnly = await prisma.proximitySensor.findMany({ select: { id: true } })
+     * const proximitySensorsWithIdOnly = await prisma.proximitySensors.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends ProximitySensorFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, ProximitySensorFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProximitySensorPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends ProximitySensorsFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ProximitySensorsFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProximitySensorsPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a ProximitySensor.
-     * @param {ProximitySensorCreateArgs} args - Arguments to create a ProximitySensor.
+     * Create a ProximitySensors.
+     * @param {ProximitySensorsCreateArgs} args - Arguments to create a ProximitySensors.
      * @example
-     * // Create one ProximitySensor
-     * const ProximitySensor = await prisma.proximitySensor.create({
+     * // Create one ProximitySensors
+     * const ProximitySensors = await prisma.proximitySensors.create({
      *   data: {
-     *     // ... data to create a ProximitySensor
+     *     // ... data to create a ProximitySensors
      *   }
      * })
      * 
     **/
-    create<T extends ProximitySensorCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, ProximitySensorCreateArgs<ExtArgs>>
-    ): Prisma__ProximitySensorClient<$Result.GetResult<Prisma.$ProximitySensorPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends ProximitySensorsCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, ProximitySensorsCreateArgs<ExtArgs>>
+    ): Prisma__ProximitySensorsClient<$Result.GetResult<Prisma.$ProximitySensorsPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
      * Create many ProximitySensors.
-     *     @param {ProximitySensorCreateManyArgs} args - Arguments to create many ProximitySensors.
+     *     @param {ProximitySensorsCreateManyArgs} args - Arguments to create many ProximitySensors.
      *     @example
      *     // Create many ProximitySensors
-     *     const proximitySensor = await prisma.proximitySensor.createMany({
+     *     const proximitySensors = await prisma.proximitySensors.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends ProximitySensorCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, ProximitySensorCreateManyArgs<ExtArgs>>
+    createMany<T extends ProximitySensorsCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ProximitySensorsCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a ProximitySensor.
-     * @param {ProximitySensorDeleteArgs} args - Arguments to delete one ProximitySensor.
+     * Delete a ProximitySensors.
+     * @param {ProximitySensorsDeleteArgs} args - Arguments to delete one ProximitySensors.
      * @example
-     * // Delete one ProximitySensor
-     * const ProximitySensor = await prisma.proximitySensor.delete({
+     * // Delete one ProximitySensors
+     * const ProximitySensors = await prisma.proximitySensors.delete({
      *   where: {
-     *     // ... filter to delete one ProximitySensor
+     *     // ... filter to delete one ProximitySensors
      *   }
      * })
      * 
     **/
-    delete<T extends ProximitySensorDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, ProximitySensorDeleteArgs<ExtArgs>>
-    ): Prisma__ProximitySensorClient<$Result.GetResult<Prisma.$ProximitySensorPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends ProximitySensorsDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, ProximitySensorsDeleteArgs<ExtArgs>>
+    ): Prisma__ProximitySensorsClient<$Result.GetResult<Prisma.$ProximitySensorsPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one ProximitySensor.
-     * @param {ProximitySensorUpdateArgs} args - Arguments to update one ProximitySensor.
+     * Update one ProximitySensors.
+     * @param {ProximitySensorsUpdateArgs} args - Arguments to update one ProximitySensors.
      * @example
-     * // Update one ProximitySensor
-     * const proximitySensor = await prisma.proximitySensor.update({
+     * // Update one ProximitySensors
+     * const proximitySensors = await prisma.proximitySensors.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -9463,34 +9545,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends ProximitySensorUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, ProximitySensorUpdateArgs<ExtArgs>>
-    ): Prisma__ProximitySensorClient<$Result.GetResult<Prisma.$ProximitySensorPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends ProximitySensorsUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, ProximitySensorsUpdateArgs<ExtArgs>>
+    ): Prisma__ProximitySensorsClient<$Result.GetResult<Prisma.$ProximitySensorsPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
      * Delete zero or more ProximitySensors.
-     * @param {ProximitySensorDeleteManyArgs} args - Arguments to filter ProximitySensors to delete.
+     * @param {ProximitySensorsDeleteManyArgs} args - Arguments to filter ProximitySensors to delete.
      * @example
      * // Delete a few ProximitySensors
-     * const { count } = await prisma.proximitySensor.deleteMany({
+     * const { count } = await prisma.proximitySensors.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends ProximitySensorDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, ProximitySensorDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends ProximitySensorsDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ProximitySensorsDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more ProximitySensors.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProximitySensorUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {ProximitySensorsUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
      * // Update many ProximitySensors
-     * const proximitySensor = await prisma.proximitySensor.updateMany({
+     * const proximitySensors = await prisma.proximitySensors.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -9500,59 +9582,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends ProximitySensorUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, ProximitySensorUpdateManyArgs<ExtArgs>>
+    updateMany<T extends ProximitySensorsUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, ProximitySensorsUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one ProximitySensor.
-     * @param {ProximitySensorUpsertArgs} args - Arguments to update or create a ProximitySensor.
+     * Create or update one ProximitySensors.
+     * @param {ProximitySensorsUpsertArgs} args - Arguments to update or create a ProximitySensors.
      * @example
-     * // Update or create a ProximitySensor
-     * const proximitySensor = await prisma.proximitySensor.upsert({
+     * // Update or create a ProximitySensors
+     * const proximitySensors = await prisma.proximitySensors.upsert({
      *   create: {
-     *     // ... data to create a ProximitySensor
+     *     // ... data to create a ProximitySensors
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the ProximitySensor we want to update
+     *     // ... the filter for the ProximitySensors we want to update
      *   }
      * })
     **/
-    upsert<T extends ProximitySensorUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, ProximitySensorUpsertArgs<ExtArgs>>
-    ): Prisma__ProximitySensorClient<$Result.GetResult<Prisma.$ProximitySensorPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends ProximitySensorsUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, ProximitySensorsUpsertArgs<ExtArgs>>
+    ): Prisma__ProximitySensorsClient<$Result.GetResult<Prisma.$ProximitySensorsPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
      * Count the number of ProximitySensors.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProximitySensorCountArgs} args - Arguments to filter ProximitySensors to count.
+     * @param {ProximitySensorsCountArgs} args - Arguments to filter ProximitySensors to count.
      * @example
      * // Count the number of ProximitySensors
-     * const count = await prisma.proximitySensor.count({
+     * const count = await prisma.proximitySensors.count({
      *   where: {
      *     // ... the filter for the ProximitySensors we want to count
      *   }
      * })
     **/
-    count<T extends ProximitySensorCountArgs>(
-      args?: Subset<T, ProximitySensorCountArgs>,
+    count<T extends ProximitySensorsCountArgs>(
+      args?: Subset<T, ProximitySensorsCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], ProximitySensorCountAggregateOutputType>
+          : GetScalarType<T['select'], ProximitySensorsCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a ProximitySensor.
+     * Allows you to perform aggregations operations on a ProximitySensors.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProximitySensorAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {ProximitySensorsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -9572,13 +9654,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends ProximitySensorAggregateArgs>(args: Subset<T, ProximitySensorAggregateArgs>): Prisma.PrismaPromise<GetProximitySensorAggregateType<T>>
+    aggregate<T extends ProximitySensorsAggregateArgs>(args: Subset<T, ProximitySensorsAggregateArgs>): Prisma.PrismaPromise<GetProximitySensorsAggregateType<T>>
 
     /**
-     * Group by ProximitySensor.
+     * Group by ProximitySensors.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProximitySensorGroupByArgs} args - Group by arguments.
+     * @param {ProximitySensorsGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -9593,14 +9675,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends ProximitySensorGroupByArgs,
+      T extends ProximitySensorsGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ProximitySensorGroupByArgs['orderBy'] }
-        : { orderBy?: ProximitySensorGroupByArgs['orderBy'] },
+        ? { orderBy: ProximitySensorsGroupByArgs['orderBy'] }
+        : { orderBy?: ProximitySensorsGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -9649,20 +9731,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, ProximitySensorGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProximitySensorGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, ProximitySensorsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProximitySensorsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the ProximitySensor model
+   * Fields of the ProximitySensors model
    */
-  readonly fields: ProximitySensorFieldRefs;
+  readonly fields: ProximitySensorsFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for ProximitySensor.
+   * The delegate class that acts as a "Promise-like" for ProximitySensors.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__ProximitySensorClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__ProximitySensorsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
 
@@ -9691,162 +9773,162 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the ProximitySensor model
+   * Fields of the ProximitySensors model
    */ 
-  interface ProximitySensorFieldRefs {
-    readonly id: FieldRef<"ProximitySensor", 'String'>
-    readonly distance: FieldRef<"ProximitySensor", 'Decimal'>
-    readonly status: FieldRef<"ProximitySensor", 'Boolean'>
-    readonly registeredAt: FieldRef<"ProximitySensor", 'DateTime'>
+  interface ProximitySensorsFieldRefs {
+    readonly id: FieldRef<"ProximitySensors", 'String'>
+    readonly distance: FieldRef<"ProximitySensors", 'Decimal'>
+    readonly status: FieldRef<"ProximitySensors", 'Boolean'>
+    readonly registeredAt: FieldRef<"ProximitySensors", 'DateTime'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * ProximitySensor findUnique
+   * ProximitySensors findUnique
    */
-  export type ProximitySensorFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProximitySensorsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ProximitySensor
+     * Select specific fields to fetch from the ProximitySensors
      */
-    select?: ProximitySensorSelect<ExtArgs> | null
-    /**
-     * Filter, which ProximitySensor to fetch.
-     */
-    where: ProximitySensorWhereUniqueInput
-  }
-
-
-  /**
-   * ProximitySensor findUniqueOrThrow
-   */
-  export type ProximitySensorFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ProximitySensor
-     */
-    select?: ProximitySensorSelect<ExtArgs> | null
-    /**
-     * Filter, which ProximitySensor to fetch.
-     */
-    where: ProximitySensorWhereUniqueInput
-  }
-
-
-  /**
-   * ProximitySensor findFirst
-   */
-  export type ProximitySensorFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ProximitySensor
-     */
-    select?: ProximitySensorSelect<ExtArgs> | null
-    /**
-     * Filter, which ProximitySensor to fetch.
-     */
-    where?: ProximitySensorWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of ProximitySensors to fetch.
-     */
-    orderBy?: ProximitySensorOrderByWithRelationInput | ProximitySensorOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for ProximitySensors.
-     */
-    cursor?: ProximitySensorWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` ProximitySensors from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` ProximitySensors.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of ProximitySensors.
-     */
-    distinct?: ProximitySensorScalarFieldEnum | ProximitySensorScalarFieldEnum[]
-  }
-
-
-  /**
-   * ProximitySensor findFirstOrThrow
-   */
-  export type ProximitySensorFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ProximitySensor
-     */
-    select?: ProximitySensorSelect<ExtArgs> | null
-    /**
-     * Filter, which ProximitySensor to fetch.
-     */
-    where?: ProximitySensorWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of ProximitySensors to fetch.
-     */
-    orderBy?: ProximitySensorOrderByWithRelationInput | ProximitySensorOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for ProximitySensors.
-     */
-    cursor?: ProximitySensorWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` ProximitySensors from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` ProximitySensors.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of ProximitySensors.
-     */
-    distinct?: ProximitySensorScalarFieldEnum | ProximitySensorScalarFieldEnum[]
-  }
-
-
-  /**
-   * ProximitySensor findMany
-   */
-  export type ProximitySensorFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ProximitySensor
-     */
-    select?: ProximitySensorSelect<ExtArgs> | null
+    select?: ProximitySensorsSelect<ExtArgs> | null
     /**
      * Filter, which ProximitySensors to fetch.
      */
-    where?: ProximitySensorWhereInput
+    where: ProximitySensorsWhereUniqueInput
+  }
+
+
+  /**
+   * ProximitySensors findUniqueOrThrow
+   */
+  export type ProximitySensorsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProximitySensors
+     */
+    select?: ProximitySensorsSelect<ExtArgs> | null
+    /**
+     * Filter, which ProximitySensors to fetch.
+     */
+    where: ProximitySensorsWhereUniqueInput
+  }
+
+
+  /**
+   * ProximitySensors findFirst
+   */
+  export type ProximitySensorsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProximitySensors
+     */
+    select?: ProximitySensorsSelect<ExtArgs> | null
+    /**
+     * Filter, which ProximitySensors to fetch.
+     */
+    where?: ProximitySensorsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of ProximitySensors to fetch.
      */
-    orderBy?: ProximitySensorOrderByWithRelationInput | ProximitySensorOrderByWithRelationInput[]
+    orderBy?: ProximitySensorsOrderByWithRelationInput | ProximitySensorsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProximitySensors.
+     */
+    cursor?: ProximitySensorsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProximitySensors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProximitySensors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProximitySensors.
+     */
+    distinct?: ProximitySensorsScalarFieldEnum | ProximitySensorsScalarFieldEnum[]
+  }
+
+
+  /**
+   * ProximitySensors findFirstOrThrow
+   */
+  export type ProximitySensorsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProximitySensors
+     */
+    select?: ProximitySensorsSelect<ExtArgs> | null
+    /**
+     * Filter, which ProximitySensors to fetch.
+     */
+    where?: ProximitySensorsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProximitySensors to fetch.
+     */
+    orderBy?: ProximitySensorsOrderByWithRelationInput | ProximitySensorsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProximitySensors.
+     */
+    cursor?: ProximitySensorsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProximitySensors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProximitySensors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProximitySensors.
+     */
+    distinct?: ProximitySensorsScalarFieldEnum | ProximitySensorsScalarFieldEnum[]
+  }
+
+
+  /**
+   * ProximitySensors findMany
+   */
+  export type ProximitySensorsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProximitySensors
+     */
+    select?: ProximitySensorsSelect<ExtArgs> | null
+    /**
+     * Filter, which ProximitySensors to fetch.
+     */
+    where?: ProximitySensorsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProximitySensors to fetch.
+     */
+    orderBy?: ProximitySensorsOrderByWithRelationInput | ProximitySensorsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the position for listing ProximitySensors.
      */
-    cursor?: ProximitySensorWhereUniqueInput
+    cursor?: ProximitySensorsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -9859,128 +9941,976 @@ export namespace Prisma {
      * Skip the first `n` ProximitySensors.
      */
     skip?: number
-    distinct?: ProximitySensorScalarFieldEnum | ProximitySensorScalarFieldEnum[]
+    distinct?: ProximitySensorsScalarFieldEnum | ProximitySensorsScalarFieldEnum[]
   }
 
 
   /**
-   * ProximitySensor create
+   * ProximitySensors create
    */
-  export type ProximitySensorCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProximitySensorsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ProximitySensor
+     * Select specific fields to fetch from the ProximitySensors
      */
-    select?: ProximitySensorSelect<ExtArgs> | null
+    select?: ProximitySensorsSelect<ExtArgs> | null
     /**
-     * The data needed to create a ProximitySensor.
+     * The data needed to create a ProximitySensors.
      */
-    data: XOR<ProximitySensorCreateInput, ProximitySensorUncheckedCreateInput>
+    data: XOR<ProximitySensorsCreateInput, ProximitySensorsUncheckedCreateInput>
   }
 
 
   /**
-   * ProximitySensor createMany
+   * ProximitySensors createMany
    */
-  export type ProximitySensorCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProximitySensorsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to create many ProximitySensors.
      */
-    data: ProximitySensorCreateManyInput | ProximitySensorCreateManyInput[]
+    data: ProximitySensorsCreateManyInput | ProximitySensorsCreateManyInput[]
     skipDuplicates?: boolean
   }
 
 
   /**
-   * ProximitySensor update
+   * ProximitySensors update
    */
-  export type ProximitySensorUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProximitySensorsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ProximitySensor
+     * Select specific fields to fetch from the ProximitySensors
      */
-    select?: ProximitySensorSelect<ExtArgs> | null
+    select?: ProximitySensorsSelect<ExtArgs> | null
     /**
-     * The data needed to update a ProximitySensor.
+     * The data needed to update a ProximitySensors.
      */
-    data: XOR<ProximitySensorUpdateInput, ProximitySensorUncheckedUpdateInput>
+    data: XOR<ProximitySensorsUpdateInput, ProximitySensorsUncheckedUpdateInput>
     /**
-     * Choose, which ProximitySensor to update.
+     * Choose, which ProximitySensors to update.
      */
-    where: ProximitySensorWhereUniqueInput
+    where: ProximitySensorsWhereUniqueInput
   }
 
 
   /**
-   * ProximitySensor updateMany
+   * ProximitySensors updateMany
    */
-  export type ProximitySensorUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProximitySensorsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to update ProximitySensors.
      */
-    data: XOR<ProximitySensorUpdateManyMutationInput, ProximitySensorUncheckedUpdateManyInput>
+    data: XOR<ProximitySensorsUpdateManyMutationInput, ProximitySensorsUncheckedUpdateManyInput>
     /**
      * Filter which ProximitySensors to update
      */
-    where?: ProximitySensorWhereInput
+    where?: ProximitySensorsWhereInput
   }
 
 
   /**
-   * ProximitySensor upsert
+   * ProximitySensors upsert
    */
-  export type ProximitySensorUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProximitySensorsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ProximitySensor
+     * Select specific fields to fetch from the ProximitySensors
      */
-    select?: ProximitySensorSelect<ExtArgs> | null
+    select?: ProximitySensorsSelect<ExtArgs> | null
     /**
-     * The filter to search for the ProximitySensor to update in case it exists.
+     * The filter to search for the ProximitySensors to update in case it exists.
      */
-    where: ProximitySensorWhereUniqueInput
+    where: ProximitySensorsWhereUniqueInput
     /**
-     * In case the ProximitySensor found by the `where` argument doesn't exist, create a new ProximitySensor with this data.
+     * In case the ProximitySensors found by the `where` argument doesn't exist, create a new ProximitySensors with this data.
      */
-    create: XOR<ProximitySensorCreateInput, ProximitySensorUncheckedCreateInput>
+    create: XOR<ProximitySensorsCreateInput, ProximitySensorsUncheckedCreateInput>
     /**
-     * In case the ProximitySensor was found with the provided `where` argument, update it with this data.
+     * In case the ProximitySensors was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<ProximitySensorUpdateInput, ProximitySensorUncheckedUpdateInput>
+    update: XOR<ProximitySensorsUpdateInput, ProximitySensorsUncheckedUpdateInput>
   }
 
 
   /**
-   * ProximitySensor delete
+   * ProximitySensors delete
    */
-  export type ProximitySensorDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProximitySensorsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ProximitySensor
+     * Select specific fields to fetch from the ProximitySensors
      */
-    select?: ProximitySensorSelect<ExtArgs> | null
+    select?: ProximitySensorsSelect<ExtArgs> | null
     /**
-     * Filter which ProximitySensor to delete.
+     * Filter which ProximitySensors to delete.
      */
-    where: ProximitySensorWhereUniqueInput
+    where: ProximitySensorsWhereUniqueInput
   }
 
 
   /**
-   * ProximitySensor deleteMany
+   * ProximitySensors deleteMany
    */
-  export type ProximitySensorDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProximitySensorsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which ProximitySensors to delete
      */
-    where?: ProximitySensorWhereInput
+    where?: ProximitySensorsWhereInput
   }
 
 
   /**
-   * ProximitySensor without action
+   * ProximitySensors without action
    */
-  export type ProximitySensorDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProximitySensorsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ProximitySensor
+     * Select specific fields to fetch from the ProximitySensors
      */
-    select?: ProximitySensorSelect<ExtArgs> | null
+    select?: ProximitySensorsSelect<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model FanActuators
+   */
+
+  export type AggregateFanActuators = {
+    _count: FanActuatorsCountAggregateOutputType | null
+    _min: FanActuatorsMinAggregateOutputType | null
+    _max: FanActuatorsMaxAggregateOutputType | null
+  }
+
+  export type FanActuatorsMinAggregateOutputType = {
+    id: string | null
+    status: boolean | null
+    registeredAt: Date | null
+  }
+
+  export type FanActuatorsMaxAggregateOutputType = {
+    id: string | null
+    status: boolean | null
+    registeredAt: Date | null
+  }
+
+  export type FanActuatorsCountAggregateOutputType = {
+    id: number
+    status: number
+    registeredAt: number
+    _all: number
+  }
+
+
+  export type FanActuatorsMinAggregateInputType = {
+    id?: true
+    status?: true
+    registeredAt?: true
+  }
+
+  export type FanActuatorsMaxAggregateInputType = {
+    id?: true
+    status?: true
+    registeredAt?: true
+  }
+
+  export type FanActuatorsCountAggregateInputType = {
+    id?: true
+    status?: true
+    registeredAt?: true
+    _all?: true
+  }
+
+  export type FanActuatorsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FanActuators to aggregate.
+     */
+    where?: FanActuatorsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FanActuators to fetch.
+     */
+    orderBy?: FanActuatorsOrderByWithRelationInput | FanActuatorsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FanActuatorsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FanActuators from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FanActuators.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FanActuators
+    **/
+    _count?: true | FanActuatorsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FanActuatorsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FanActuatorsMaxAggregateInputType
+  }
+
+  export type GetFanActuatorsAggregateType<T extends FanActuatorsAggregateArgs> = {
+        [P in keyof T & keyof AggregateFanActuators]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFanActuators[P]>
+      : GetScalarType<T[P], AggregateFanActuators[P]>
+  }
+
+
+
+
+  export type FanActuatorsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FanActuatorsWhereInput
+    orderBy?: FanActuatorsOrderByWithAggregationInput | FanActuatorsOrderByWithAggregationInput[]
+    by: FanActuatorsScalarFieldEnum[] | FanActuatorsScalarFieldEnum
+    having?: FanActuatorsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FanActuatorsCountAggregateInputType | true
+    _min?: FanActuatorsMinAggregateInputType
+    _max?: FanActuatorsMaxAggregateInputType
+  }
+
+  export type FanActuatorsGroupByOutputType = {
+    id: string
+    status: boolean
+    registeredAt: Date
+    _count: FanActuatorsCountAggregateOutputType | null
+    _min: FanActuatorsMinAggregateOutputType | null
+    _max: FanActuatorsMaxAggregateOutputType | null
+  }
+
+  type GetFanActuatorsGroupByPayload<T extends FanActuatorsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FanActuatorsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FanActuatorsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FanActuatorsGroupByOutputType[P]>
+            : GetScalarType<T[P], FanActuatorsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FanActuatorsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    status?: boolean
+    registeredAt?: boolean
+  }, ExtArgs["result"]["fanActuators"]>
+
+  export type FanActuatorsSelectScalar = {
+    id?: boolean
+    status?: boolean
+    registeredAt?: boolean
+  }
+
+
+  export type $FanActuatorsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FanActuators"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      status: boolean
+      registeredAt: Date
+    }, ExtArgs["result"]["fanActuators"]>
+    composites: {}
+  }
+
+
+  type FanActuatorsGetPayload<S extends boolean | null | undefined | FanActuatorsDefaultArgs> = $Result.GetResult<Prisma.$FanActuatorsPayload, S>
+
+  type FanActuatorsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<FanActuatorsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: FanActuatorsCountAggregateInputType | true
+    }
+
+  export interface FanActuatorsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FanActuators'], meta: { name: 'FanActuators' } }
+    /**
+     * Find zero or one FanActuators that matches the filter.
+     * @param {FanActuatorsFindUniqueArgs} args - Arguments to find a FanActuators
+     * @example
+     * // Get one FanActuators
+     * const fanActuators = await prisma.fanActuators.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends FanActuatorsFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, FanActuatorsFindUniqueArgs<ExtArgs>>
+    ): Prisma__FanActuatorsClient<$Result.GetResult<Prisma.$FanActuatorsPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one FanActuators that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {FanActuatorsFindUniqueOrThrowArgs} args - Arguments to find a FanActuators
+     * @example
+     * // Get one FanActuators
+     * const fanActuators = await prisma.fanActuators.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends FanActuatorsFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, FanActuatorsFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__FanActuatorsClient<$Result.GetResult<Prisma.$FanActuatorsPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first FanActuators that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FanActuatorsFindFirstArgs} args - Arguments to find a FanActuators
+     * @example
+     * // Get one FanActuators
+     * const fanActuators = await prisma.fanActuators.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends FanActuatorsFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, FanActuatorsFindFirstArgs<ExtArgs>>
+    ): Prisma__FanActuatorsClient<$Result.GetResult<Prisma.$FanActuatorsPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first FanActuators that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FanActuatorsFindFirstOrThrowArgs} args - Arguments to find a FanActuators
+     * @example
+     * // Get one FanActuators
+     * const fanActuators = await prisma.fanActuators.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends FanActuatorsFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, FanActuatorsFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__FanActuatorsClient<$Result.GetResult<Prisma.$FanActuatorsPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more FanActuators that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FanActuatorsFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FanActuators
+     * const fanActuators = await prisma.fanActuators.findMany()
+     * 
+     * // Get first 10 FanActuators
+     * const fanActuators = await prisma.fanActuators.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const fanActuatorsWithIdOnly = await prisma.fanActuators.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends FanActuatorsFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, FanActuatorsFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FanActuatorsPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a FanActuators.
+     * @param {FanActuatorsCreateArgs} args - Arguments to create a FanActuators.
+     * @example
+     * // Create one FanActuators
+     * const FanActuators = await prisma.fanActuators.create({
+     *   data: {
+     *     // ... data to create a FanActuators
+     *   }
+     * })
+     * 
+    **/
+    create<T extends FanActuatorsCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, FanActuatorsCreateArgs<ExtArgs>>
+    ): Prisma__FanActuatorsClient<$Result.GetResult<Prisma.$FanActuatorsPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many FanActuators.
+     *     @param {FanActuatorsCreateManyArgs} args - Arguments to create many FanActuators.
+     *     @example
+     *     // Create many FanActuators
+     *     const fanActuators = await prisma.fanActuators.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends FanActuatorsCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, FanActuatorsCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a FanActuators.
+     * @param {FanActuatorsDeleteArgs} args - Arguments to delete one FanActuators.
+     * @example
+     * // Delete one FanActuators
+     * const FanActuators = await prisma.fanActuators.delete({
+     *   where: {
+     *     // ... filter to delete one FanActuators
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends FanActuatorsDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, FanActuatorsDeleteArgs<ExtArgs>>
+    ): Prisma__FanActuatorsClient<$Result.GetResult<Prisma.$FanActuatorsPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one FanActuators.
+     * @param {FanActuatorsUpdateArgs} args - Arguments to update one FanActuators.
+     * @example
+     * // Update one FanActuators
+     * const fanActuators = await prisma.fanActuators.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends FanActuatorsUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, FanActuatorsUpdateArgs<ExtArgs>>
+    ): Prisma__FanActuatorsClient<$Result.GetResult<Prisma.$FanActuatorsPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more FanActuators.
+     * @param {FanActuatorsDeleteManyArgs} args - Arguments to filter FanActuators to delete.
+     * @example
+     * // Delete a few FanActuators
+     * const { count } = await prisma.fanActuators.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends FanActuatorsDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, FanActuatorsDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FanActuators.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FanActuatorsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FanActuators
+     * const fanActuators = await prisma.fanActuators.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends FanActuatorsUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, FanActuatorsUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one FanActuators.
+     * @param {FanActuatorsUpsertArgs} args - Arguments to update or create a FanActuators.
+     * @example
+     * // Update or create a FanActuators
+     * const fanActuators = await prisma.fanActuators.upsert({
+     *   create: {
+     *     // ... data to create a FanActuators
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FanActuators we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends FanActuatorsUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, FanActuatorsUpsertArgs<ExtArgs>>
+    ): Prisma__FanActuatorsClient<$Result.GetResult<Prisma.$FanActuatorsPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of FanActuators.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FanActuatorsCountArgs} args - Arguments to filter FanActuators to count.
+     * @example
+     * // Count the number of FanActuators
+     * const count = await prisma.fanActuators.count({
+     *   where: {
+     *     // ... the filter for the FanActuators we want to count
+     *   }
+     * })
+    **/
+    count<T extends FanActuatorsCountArgs>(
+      args?: Subset<T, FanActuatorsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FanActuatorsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FanActuators.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FanActuatorsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FanActuatorsAggregateArgs>(args: Subset<T, FanActuatorsAggregateArgs>): Prisma.PrismaPromise<GetFanActuatorsAggregateType<T>>
+
+    /**
+     * Group by FanActuators.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FanActuatorsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FanActuatorsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FanActuatorsGroupByArgs['orderBy'] }
+        : { orderBy?: FanActuatorsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FanActuatorsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFanActuatorsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FanActuators model
+   */
+  readonly fields: FanActuatorsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FanActuators.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FanActuatorsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the FanActuators model
+   */ 
+  interface FanActuatorsFieldRefs {
+    readonly id: FieldRef<"FanActuators", 'String'>
+    readonly status: FieldRef<"FanActuators", 'Boolean'>
+    readonly registeredAt: FieldRef<"FanActuators", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * FanActuators findUnique
+   */
+  export type FanActuatorsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FanActuators
+     */
+    select?: FanActuatorsSelect<ExtArgs> | null
+    /**
+     * Filter, which FanActuators to fetch.
+     */
+    where: FanActuatorsWhereUniqueInput
+  }
+
+
+  /**
+   * FanActuators findUniqueOrThrow
+   */
+  export type FanActuatorsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FanActuators
+     */
+    select?: FanActuatorsSelect<ExtArgs> | null
+    /**
+     * Filter, which FanActuators to fetch.
+     */
+    where: FanActuatorsWhereUniqueInput
+  }
+
+
+  /**
+   * FanActuators findFirst
+   */
+  export type FanActuatorsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FanActuators
+     */
+    select?: FanActuatorsSelect<ExtArgs> | null
+    /**
+     * Filter, which FanActuators to fetch.
+     */
+    where?: FanActuatorsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FanActuators to fetch.
+     */
+    orderBy?: FanActuatorsOrderByWithRelationInput | FanActuatorsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FanActuators.
+     */
+    cursor?: FanActuatorsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FanActuators from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FanActuators.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FanActuators.
+     */
+    distinct?: FanActuatorsScalarFieldEnum | FanActuatorsScalarFieldEnum[]
+  }
+
+
+  /**
+   * FanActuators findFirstOrThrow
+   */
+  export type FanActuatorsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FanActuators
+     */
+    select?: FanActuatorsSelect<ExtArgs> | null
+    /**
+     * Filter, which FanActuators to fetch.
+     */
+    where?: FanActuatorsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FanActuators to fetch.
+     */
+    orderBy?: FanActuatorsOrderByWithRelationInput | FanActuatorsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FanActuators.
+     */
+    cursor?: FanActuatorsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FanActuators from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FanActuators.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FanActuators.
+     */
+    distinct?: FanActuatorsScalarFieldEnum | FanActuatorsScalarFieldEnum[]
+  }
+
+
+  /**
+   * FanActuators findMany
+   */
+  export type FanActuatorsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FanActuators
+     */
+    select?: FanActuatorsSelect<ExtArgs> | null
+    /**
+     * Filter, which FanActuators to fetch.
+     */
+    where?: FanActuatorsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FanActuators to fetch.
+     */
+    orderBy?: FanActuatorsOrderByWithRelationInput | FanActuatorsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FanActuators.
+     */
+    cursor?: FanActuatorsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FanActuators from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FanActuators.
+     */
+    skip?: number
+    distinct?: FanActuatorsScalarFieldEnum | FanActuatorsScalarFieldEnum[]
+  }
+
+
+  /**
+   * FanActuators create
+   */
+  export type FanActuatorsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FanActuators
+     */
+    select?: FanActuatorsSelect<ExtArgs> | null
+    /**
+     * The data needed to create a FanActuators.
+     */
+    data?: XOR<FanActuatorsCreateInput, FanActuatorsUncheckedCreateInput>
+  }
+
+
+  /**
+   * FanActuators createMany
+   */
+  export type FanActuatorsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FanActuators.
+     */
+    data: FanActuatorsCreateManyInput | FanActuatorsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * FanActuators update
+   */
+  export type FanActuatorsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FanActuators
+     */
+    select?: FanActuatorsSelect<ExtArgs> | null
+    /**
+     * The data needed to update a FanActuators.
+     */
+    data: XOR<FanActuatorsUpdateInput, FanActuatorsUncheckedUpdateInput>
+    /**
+     * Choose, which FanActuators to update.
+     */
+    where: FanActuatorsWhereUniqueInput
+  }
+
+
+  /**
+   * FanActuators updateMany
+   */
+  export type FanActuatorsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FanActuators.
+     */
+    data: XOR<FanActuatorsUpdateManyMutationInput, FanActuatorsUncheckedUpdateManyInput>
+    /**
+     * Filter which FanActuators to update
+     */
+    where?: FanActuatorsWhereInput
+  }
+
+
+  /**
+   * FanActuators upsert
+   */
+  export type FanActuatorsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FanActuators
+     */
+    select?: FanActuatorsSelect<ExtArgs> | null
+    /**
+     * The filter to search for the FanActuators to update in case it exists.
+     */
+    where: FanActuatorsWhereUniqueInput
+    /**
+     * In case the FanActuators found by the `where` argument doesn't exist, create a new FanActuators with this data.
+     */
+    create: XOR<FanActuatorsCreateInput, FanActuatorsUncheckedCreateInput>
+    /**
+     * In case the FanActuators was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FanActuatorsUpdateInput, FanActuatorsUncheckedUpdateInput>
+  }
+
+
+  /**
+   * FanActuators delete
+   */
+  export type FanActuatorsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FanActuators
+     */
+    select?: FanActuatorsSelect<ExtArgs> | null
+    /**
+     * Filter which FanActuators to delete.
+     */
+    where: FanActuatorsWhereUniqueInput
+  }
+
+
+  /**
+   * FanActuators deleteMany
+   */
+  export type FanActuatorsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FanActuators to delete
+     */
+    where?: FanActuatorsWhereInput
+  }
+
+
+  /**
+   * FanActuators without action
+   */
+  export type FanActuatorsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FanActuators
+     */
+    select?: FanActuatorsSelect<ExtArgs> | null
   }
 
 
@@ -10089,14 +11019,23 @@ export namespace Prisma {
   export type HumiditySensorsScalarFieldEnum = (typeof HumiditySensorsScalarFieldEnum)[keyof typeof HumiditySensorsScalarFieldEnum]
 
 
-  export const ProximitySensorScalarFieldEnum: {
+  export const ProximitySensorsScalarFieldEnum: {
     id: 'id',
     distance: 'distance',
     status: 'status',
     registeredAt: 'registeredAt'
   };
 
-  export type ProximitySensorScalarFieldEnum = (typeof ProximitySensorScalarFieldEnum)[keyof typeof ProximitySensorScalarFieldEnum]
+  export type ProximitySensorsScalarFieldEnum = (typeof ProximitySensorsScalarFieldEnum)[keyof typeof ProximitySensorsScalarFieldEnum]
+
+
+  export const FanActuatorsScalarFieldEnum: {
+    id: 'id',
+    status: 'status',
+    registeredAt: 'registeredAt'
+  };
+
+  export type FanActuatorsScalarFieldEnum = (typeof FanActuatorsScalarFieldEnum)[keyof typeof FanActuatorsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -10621,53 +11560,95 @@ export namespace Prisma {
     registeredAt?: DateTimeWithAggregatesFilter<"HumiditySensors"> | Date | string
   }
 
-  export type ProximitySensorWhereInput = {
-    AND?: ProximitySensorWhereInput | ProximitySensorWhereInput[]
-    OR?: ProximitySensorWhereInput[]
-    NOT?: ProximitySensorWhereInput | ProximitySensorWhereInput[]
-    id?: StringFilter<"ProximitySensor"> | string
-    distance?: DecimalFilter<"ProximitySensor"> | Decimal | DecimalJsLike | number | string
-    status?: BoolFilter<"ProximitySensor"> | boolean
-    registeredAt?: DateTimeFilter<"ProximitySensor"> | Date | string
+  export type ProximitySensorsWhereInput = {
+    AND?: ProximitySensorsWhereInput | ProximitySensorsWhereInput[]
+    OR?: ProximitySensorsWhereInput[]
+    NOT?: ProximitySensorsWhereInput | ProximitySensorsWhereInput[]
+    id?: StringFilter<"ProximitySensors"> | string
+    distance?: DecimalFilter<"ProximitySensors"> | Decimal | DecimalJsLike | number | string
+    status?: BoolFilter<"ProximitySensors"> | boolean
+    registeredAt?: DateTimeFilter<"ProximitySensors"> | Date | string
   }
 
-  export type ProximitySensorOrderByWithRelationInput = {
+  export type ProximitySensorsOrderByWithRelationInput = {
     id?: SortOrder
     distance?: SortOrder
     status?: SortOrder
     registeredAt?: SortOrder
   }
 
-  export type ProximitySensorWhereUniqueInput = Prisma.AtLeast<{
+  export type ProximitySensorsWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: ProximitySensorWhereInput | ProximitySensorWhereInput[]
-    OR?: ProximitySensorWhereInput[]
-    NOT?: ProximitySensorWhereInput | ProximitySensorWhereInput[]
-    distance?: DecimalFilter<"ProximitySensor"> | Decimal | DecimalJsLike | number | string
-    status?: BoolFilter<"ProximitySensor"> | boolean
-    registeredAt?: DateTimeFilter<"ProximitySensor"> | Date | string
+    AND?: ProximitySensorsWhereInput | ProximitySensorsWhereInput[]
+    OR?: ProximitySensorsWhereInput[]
+    NOT?: ProximitySensorsWhereInput | ProximitySensorsWhereInput[]
+    distance?: DecimalFilter<"ProximitySensors"> | Decimal | DecimalJsLike | number | string
+    status?: BoolFilter<"ProximitySensors"> | boolean
+    registeredAt?: DateTimeFilter<"ProximitySensors"> | Date | string
   }, "id" | "id">
 
-  export type ProximitySensorOrderByWithAggregationInput = {
+  export type ProximitySensorsOrderByWithAggregationInput = {
     id?: SortOrder
     distance?: SortOrder
     status?: SortOrder
     registeredAt?: SortOrder
-    _count?: ProximitySensorCountOrderByAggregateInput
-    _avg?: ProximitySensorAvgOrderByAggregateInput
-    _max?: ProximitySensorMaxOrderByAggregateInput
-    _min?: ProximitySensorMinOrderByAggregateInput
-    _sum?: ProximitySensorSumOrderByAggregateInput
+    _count?: ProximitySensorsCountOrderByAggregateInput
+    _avg?: ProximitySensorsAvgOrderByAggregateInput
+    _max?: ProximitySensorsMaxOrderByAggregateInput
+    _min?: ProximitySensorsMinOrderByAggregateInput
+    _sum?: ProximitySensorsSumOrderByAggregateInput
   }
 
-  export type ProximitySensorScalarWhereWithAggregatesInput = {
-    AND?: ProximitySensorScalarWhereWithAggregatesInput | ProximitySensorScalarWhereWithAggregatesInput[]
-    OR?: ProximitySensorScalarWhereWithAggregatesInput[]
-    NOT?: ProximitySensorScalarWhereWithAggregatesInput | ProximitySensorScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"ProximitySensor"> | string
-    distance?: DecimalWithAggregatesFilter<"ProximitySensor"> | Decimal | DecimalJsLike | number | string
-    status?: BoolWithAggregatesFilter<"ProximitySensor"> | boolean
-    registeredAt?: DateTimeWithAggregatesFilter<"ProximitySensor"> | Date | string
+  export type ProximitySensorsScalarWhereWithAggregatesInput = {
+    AND?: ProximitySensorsScalarWhereWithAggregatesInput | ProximitySensorsScalarWhereWithAggregatesInput[]
+    OR?: ProximitySensorsScalarWhereWithAggregatesInput[]
+    NOT?: ProximitySensorsScalarWhereWithAggregatesInput | ProximitySensorsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ProximitySensors"> | string
+    distance?: DecimalWithAggregatesFilter<"ProximitySensors"> | Decimal | DecimalJsLike | number | string
+    status?: BoolWithAggregatesFilter<"ProximitySensors"> | boolean
+    registeredAt?: DateTimeWithAggregatesFilter<"ProximitySensors"> | Date | string
+  }
+
+  export type FanActuatorsWhereInput = {
+    AND?: FanActuatorsWhereInput | FanActuatorsWhereInput[]
+    OR?: FanActuatorsWhereInput[]
+    NOT?: FanActuatorsWhereInput | FanActuatorsWhereInput[]
+    id?: StringFilter<"FanActuators"> | string
+    status?: BoolFilter<"FanActuators"> | boolean
+    registeredAt?: DateTimeFilter<"FanActuators"> | Date | string
+  }
+
+  export type FanActuatorsOrderByWithRelationInput = {
+    id?: SortOrder
+    status?: SortOrder
+    registeredAt?: SortOrder
+  }
+
+  export type FanActuatorsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: FanActuatorsWhereInput | FanActuatorsWhereInput[]
+    OR?: FanActuatorsWhereInput[]
+    NOT?: FanActuatorsWhereInput | FanActuatorsWhereInput[]
+    status?: BoolFilter<"FanActuators"> | boolean
+    registeredAt?: DateTimeFilter<"FanActuators"> | Date | string
+  }, "id" | "id">
+
+  export type FanActuatorsOrderByWithAggregationInput = {
+    id?: SortOrder
+    status?: SortOrder
+    registeredAt?: SortOrder
+    _count?: FanActuatorsCountOrderByAggregateInput
+    _max?: FanActuatorsMaxOrderByAggregateInput
+    _min?: FanActuatorsMinOrderByAggregateInput
+  }
+
+  export type FanActuatorsScalarWhereWithAggregatesInput = {
+    AND?: FanActuatorsScalarWhereWithAggregatesInput | FanActuatorsScalarWhereWithAggregatesInput[]
+    OR?: FanActuatorsScalarWhereWithAggregatesInput[]
+    NOT?: FanActuatorsScalarWhereWithAggregatesInput | FanActuatorsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FanActuators"> | string
+    status?: BoolWithAggregatesFilter<"FanActuators"> | boolean
+    registeredAt?: DateTimeWithAggregatesFilter<"FanActuators"> | Date | string
   }
 
   export type EmployeesCreateInput = {
@@ -11144,51 +12125,93 @@ export namespace Prisma {
     registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ProximitySensorCreateInput = {
+  export type ProximitySensorsCreateInput = {
     id?: string
     distance: Decimal | DecimalJsLike | number | string
     status?: boolean
     registeredAt?: Date | string
   }
 
-  export type ProximitySensorUncheckedCreateInput = {
+  export type ProximitySensorsUncheckedCreateInput = {
     id?: string
     distance: Decimal | DecimalJsLike | number | string
     status?: boolean
     registeredAt?: Date | string
   }
 
-  export type ProximitySensorUpdateInput = {
+  export type ProximitySensorsUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     distance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: BoolFieldUpdateOperationsInput | boolean
     registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ProximitySensorUncheckedUpdateInput = {
+  export type ProximitySensorsUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     distance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: BoolFieldUpdateOperationsInput | boolean
     registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ProximitySensorCreateManyInput = {
+  export type ProximitySensorsCreateManyInput = {
     id?: string
     distance: Decimal | DecimalJsLike | number | string
     status?: boolean
     registeredAt?: Date | string
   }
 
-  export type ProximitySensorUpdateManyMutationInput = {
+  export type ProximitySensorsUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     distance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     status?: BoolFieldUpdateOperationsInput | boolean
     registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ProximitySensorUncheckedUpdateManyInput = {
+  export type ProximitySensorsUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     distance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FanActuatorsCreateInput = {
+    id?: string
+    status?: boolean
+    registeredAt?: Date | string
+  }
+
+  export type FanActuatorsUncheckedCreateInput = {
+    id?: string
+    status?: boolean
+    registeredAt?: Date | string
+  }
+
+  export type FanActuatorsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FanActuatorsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FanActuatorsCreateManyInput = {
+    id?: string
+    status?: boolean
+    registeredAt?: Date | string
+  }
+
+  export type FanActuatorsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FanActuatorsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     registeredAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11641,33 +12664,51 @@ export namespace Prisma {
     humidity?: SortOrder
   }
 
-  export type ProximitySensorCountOrderByAggregateInput = {
+  export type ProximitySensorsCountOrderByAggregateInput = {
     id?: SortOrder
     distance?: SortOrder
     status?: SortOrder
     registeredAt?: SortOrder
   }
 
-  export type ProximitySensorAvgOrderByAggregateInput = {
+  export type ProximitySensorsAvgOrderByAggregateInput = {
     distance?: SortOrder
   }
 
-  export type ProximitySensorMaxOrderByAggregateInput = {
+  export type ProximitySensorsMaxOrderByAggregateInput = {
     id?: SortOrder
     distance?: SortOrder
     status?: SortOrder
     registeredAt?: SortOrder
   }
 
-  export type ProximitySensorMinOrderByAggregateInput = {
+  export type ProximitySensorsMinOrderByAggregateInput = {
     id?: SortOrder
     distance?: SortOrder
     status?: SortOrder
     registeredAt?: SortOrder
   }
 
-  export type ProximitySensorSumOrderByAggregateInput = {
+  export type ProximitySensorsSumOrderByAggregateInput = {
     distance?: SortOrder
+  }
+
+  export type FanActuatorsCountOrderByAggregateInput = {
+    id?: SortOrder
+    status?: SortOrder
+    registeredAt?: SortOrder
+  }
+
+  export type FanActuatorsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    status?: SortOrder
+    registeredAt?: SortOrder
+  }
+
+  export type FanActuatorsMinOrderByAggregateInput = {
+    id?: SortOrder
+    status?: SortOrder
+    registeredAt?: SortOrder
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -12716,9 +13757,13 @@ export namespace Prisma {
      */
     export type HumiditySensorsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = HumiditySensorsDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use ProximitySensorDefaultArgs instead
+     * @deprecated Use ProximitySensorsDefaultArgs instead
      */
-    export type ProximitySensorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ProximitySensorDefaultArgs<ExtArgs>
+    export type ProximitySensorsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ProximitySensorsDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use FanActuatorsDefaultArgs instead
+     */
+    export type FanActuatorsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = FanActuatorsDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

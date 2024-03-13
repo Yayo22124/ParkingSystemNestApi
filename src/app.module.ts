@@ -3,6 +3,7 @@ import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { AuthModule } from './modules/auth/auth.module';
 import { ClientsModule } from './modules/clients/clients.module';
 import { EmployeesModule } from './modules/employees/employees.module';
+import { FanActuatorsModule } from './modules/fan-actuators/fan-actuators.module';
 import { FeesModule } from './modules/fees/fees.module';
 import { HumiditySensorsModule } from './modules/humidity-sensors/humidity-sensors.module';
 import { MorganMiddleware } from './middlewares/morgan/morgan.middleware';
@@ -14,7 +15,7 @@ import { SlotsModule } from './modules/slots/slots.module';
 import { VehiclesModule } from './modules/vehicles/vehicles.module';
 
 @Module({
-  imports: [PrismaModule, EmployeesModule, VehiclesModule, SlotsModule, FeesModule, RecordsModule, HumiditySensorsModule, ProximitySensorsModule, PhotoresistorsModule, AuthModule, ClientsModule],
+  imports: [PrismaModule, EmployeesModule, VehiclesModule, SlotsModule, FeesModule, RecordsModule, HumiditySensorsModule, ProximitySensorsModule, PhotoresistorsModule, AuthModule, ClientsModule, FanActuatorsModule],
   controllers: [],
   providers: [],
 })

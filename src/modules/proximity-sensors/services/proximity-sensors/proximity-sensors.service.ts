@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Prisma, ProximitySensor } from '@prisma/client';
+import { Prisma, ProximitySensors } from '@prisma/client';
 
 import { PrismaService } from 'src/modules/prisma/services/prisma/prisma.service';
 
@@ -9,25 +9,25 @@ export class ProximitySensorsService {
         
     }
 
-    async getAllProximitySensors(): Promise<ProximitySensor[]> {
-        return this.prisma.proximitySensor.findMany({
+    async getAllProximitySensors(): Promise<ProximitySensors[]> {
+        return this.prisma.proximitySensors.findMany({
             orderBy: {
                 id: 'asc'
             }
         });
     }
 
-    async getLastProximitySensor(): Promise<ProximitySensor> {
-        return this.prisma.proximitySensor.findFirst({
+    async getLastProximitySensor(): Promise<ProximitySensors> {
+        return this.prisma.proximitySensors.findFirst({
             orderBy: {
                 registeredAt: 'desc'
             }
         });
     }
 
-    async createProximitySensor(proximitySensorData: ProximitySensor): Promise<ProximitySensor> {
+    async createProximitySensor(proximitySensorData: ProximitySensors): Promise<ProximitySensors> {
         try {
-            const newProximitySensor: ProximitySensor = await this.prisma.proximitySensor.create({
+            const newProximitySensor: ProximitySensors = await this.prisma.proximitySensors.create({
                 data: proximitySensorData
             });
             
@@ -37,22 +37,22 @@ export class ProximitySensorsService {
         }
     } 
 
-    async getProximitySensor(proximitySensorId: string): Promise<ProximitySensor> {
-            const proximitySensor = await this.prisma.proximitySensor.findUnique({
+    async getProximitySensor(proximitySensorId: string): Promise<ProximitySensors> {
+            const proximitySensors = await this.prisma.proximitySensors.findUnique({
                 where: {
                     id: proximitySensorId
                 }
             });
 
-            if (!proximitySensor) {
+            if (!proximitySensors) {
                 throw new NotFoundException('Proximity Sensor not found');
             }
-            return proximitySensor;
+            return proximitySensors;
     } 
 
-    async updateProximitySensor(proximitySensorId: string, updateData: Prisma.ProximitySensorUpdateInput): Promise<ProximitySensor> {
+    async updateProximitySensor(proximitySensorId: string, updateData: Prisma.ProximitySensorsUpdateInput): Promise<ProximitySensors> {
         try {
-            const existingProximitySensor = await this.prisma.proximitySensor.findUnique({
+            const existingProximitySensor = await this.prisma.proximitySensors.findUnique({
                 where: {
                     id: proximitySensorId
                 }
@@ -62,7 +62,7 @@ export class ProximitySensorsService {
                 throw new NotFoundException("Proximity Sensor not found");
             }
 
-            const updatedRecord = await this.prisma.proximitySensor.update({
+            const updatedRecord = await this.prisma.proximitySensors.update({
                 where: {
                     id: proximitySensorId
                 },
@@ -71,13 +71,13 @@ export class ProximitySensorsService {
 
             return updatedRecord;
         } catch(error) {
-            throw new Error(`Error updating proximitySensor: ${error.message}`)
+            throw new Error(`Error updating proximitySensors: ${error.message}`)
         }
     }
 
-    async deleteProximitySensor(proximitySensorId: string): Promise<ProximitySensor>{
+    async deleteProximitySensor(proximitySensorId: string): Promise<ProximitySensors>{
         try {
-            const existingProximitySensor = await this.prisma.proximitySensor.findUnique({
+            const existingProximitySensor = await this.prisma.proximitySensors.findUnique({
                 where: {
                     id: proximitySensorId
                 }
@@ -87,7 +87,7 @@ export class ProximitySensorsService {
                 throw new NotFoundException("Proximity Sensor not found to delete.")
             }
 
-            const deletedProximitySensor = await this.prisma.proximitySensor.delete({
+            const deletedProximitySensor = await this.prisma.proximitySensors.delete({
                 where: {
                     id: proximitySensorId
                 }
@@ -95,7 +95,7 @@ export class ProximitySensorsService {
 
             return deletedProximitySensor;
         } catch(error) {
-            throw new Error(`Error deleting proximitySensor: ${error.message}`)
+            throw new Error(`Error deleting proximitySensors: ${error.message}`)
         }
     }
 }

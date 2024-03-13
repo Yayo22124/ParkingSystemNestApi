@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, HttpStatus, NotFoundException, Param, Post, Put, Res } from '@nestjs/common';
 import { ProximitySensorsService } from '../../services/proximity-sensors/proximity-sensors.service';
 import { Response } from 'express';
-import { ProximitySensor } from '@prisma/client';
+import { ProximitySensors } from '@prisma/client';
 
 @Controller('proximity-sensors')
 export class ProximitySensorsController {
@@ -48,7 +48,7 @@ export class ProximitySensorsController {
     }
 
     @Post()
-    async createProximitySensor(@Body() proximitySensorData: ProximitySensor, @Res() res: Response) {
+    async createProximitySensor(@Body() proximitySensorData: ProximitySensors, @Res() res: Response) {
         try {
             const newHumiditySensor = await this.proximitySensorsService.createProximitySensor(proximitySensorData);
 
@@ -67,7 +67,7 @@ export class ProximitySensorsController {
     }
 
     @Put(':id')
-    async updateProximitySensor(@Param('id') proximitySensorId: string, @Body() updateData: ProximitySensor, @Res() res: Response) {
+    async updateProximitySensor(@Param('id') proximitySensorId: string, @Body() updateData: ProximitySensors, @Res() res: Response) {
       try {
         const updatedProximitySensor = await this.proximitySensorsService.updateProximitySensor(proximitySensorId, updateData);
         return res.status(HttpStatus.OK).json({
